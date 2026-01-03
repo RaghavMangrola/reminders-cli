@@ -26,7 +26,7 @@ Built for use with AI agents (Claude Code, etc.) but works great as a standalone
 ### Build from source
 
 ```bash
-git clone https://github.com/yourusername/reminders-cli.git
+git clone https://github.com/RaghavMangrola/reminders-cli.git
 cd reminders-cli
 swift build -c release
 ```
@@ -117,11 +117,13 @@ $ reminders --json lists
 |------|---------|
 | 0 | Success |
 | 1 | Error (invalid input, permission denied, etc.) |
-| 2 | Not found (no matching reminder) |
+| 2 | Not found (no matching reminder or list) |
+
+**Note:** Lists must exist in the Reminders app before adding to them. If a list doesn't exist, you'll get exit code 2 with "List not found".
 
 ## Use with Claude Code
 
-Add a slash command in `~/.claude/commands/reminder.md`:
+Create a "Claude" list in your Reminders app, then add a slash command in `~/.claude/commands/reminder.md`:
 
 ```markdown
 Create a reminder using the `reminders` CLI.
